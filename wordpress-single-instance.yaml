@@ -398,7 +398,7 @@ Resources:
     Properties:
       RouteTableId: !Ref RouteTable1
       DestinationCidrBlock: 0.0.0.0/0
-      NatGatewayId: !Ref myInternetGateway
+      GatewayId: !Ref myInternetGateway
   PublicSubnet1: 
     Type: AWS::EC2::Subnet    
     Properties:
