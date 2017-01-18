@@ -1,6 +1,6 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Description: 'AWS CloudFormation WordPress_Single_Instance: WordPress is web software you can use to create a beautiful website or blog. This installs WordPress with a local MySQL database for storage. It uses
-  the AWS CloudFormation bootstrap scripts to deploy WordPress.'
+  the AWS CloudFormation bootstrap scripts to deploy WordPress via github.'
 Parameters:
   EnvironmentName:
     Description: An environment name that will be prefixed to resource names
