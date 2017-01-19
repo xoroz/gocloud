@@ -386,15 +386,17 @@ Resources:
       CidrBlock: !Ref VpcCIDR 
   AttachGateway:
     Type: AWS::EC2::VPCGatewayAttachment
+    DependsOn: myInternetGateway
     Properties:
       VpcId: !Ref myVPC
       InternetGatewayId: !Ref myInternetGateway
   RouteTable1:
-    Type: AWS::EC2::RouteTable
+    Type: AWS::EC2::RouteTable    
     Properties: 
-      VpcId: !Ref myVPC        
+      VpcId: !Ref myVPC       
   DefaultRoute1:
     Type: AWS::EC2::Route
+    DependsOn: AttachGateway
     Properties:
       RouteTableId: !Ref RouteTable1
       DestinationCidrBlock: 0.0.0.0/0
@@ -408,6 +410,7 @@ Resources:
       MapPublicIpOnLaunch: true    
   WebServer:
     Type: AWS::EC2::Instance
+    DependsOn: DefaultRoute1
     CreationPolicy:
       ResourceSignal:
         Timeout: PT10M
